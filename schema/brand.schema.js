@@ -7,7 +7,7 @@ const Brand = new Schema(
       set: (name) => name.trim(),
       unique: true,
       minlength: 2,
-      maxLength: 40,
+      maxLength: 80,
       required: true,
     },
     photo_of_brand: {

@@ -11,7 +11,7 @@ const Car = new Schema(
       type: String,
       set: (name) => name.trim(),
       minlength: 2,
-      maxlength: 40,
+      maxlength: 80,
       required: true,
     },
     engine: {
@@ -82,7 +82,7 @@ const Car = new Schema(
       type: String,
       set: (name) => name.trim(),
       minlength: 5,
-      maxLength: 2000,
+      maxLength: 5000,
       required: true,
     },
     admin_id: {
