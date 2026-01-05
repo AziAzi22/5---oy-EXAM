@@ -4,7 +4,7 @@ const CustomErrorHandler = require("./custom-error-handler");
 // access token
 const accessToken = (payload) => {
   try {
-    return jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "15m" });
+    return jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "1h" });
   } catch (error) {
     throw CustomErrorHandler.BadRequest(error.message);
   }

@@ -8,6 +8,7 @@ const BrandRouter = require("./router/brand.routes");
 const CarRouter = require("./router/car.routes");
 const errorMiddleware = require("./middleware/error.middleware");
 const logger = require("./utils/logger");
+const adminRouter = require("./router/admin.routes");
 
 const app = express();
 
@@ -27,6 +28,7 @@ connectDB();
 app.use(authRouter);
 app.use(BrandRouter);
 app.use(CarRouter);
+app.use(adminRouter)
 
 // error handler
 

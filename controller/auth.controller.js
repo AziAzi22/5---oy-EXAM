@@ -1,6 +1,9 @@
 const AuthSchema = require("../schema/auth.schema");
 const bcrypt = require("bcryptjs");
 const logger = require("../utils/logger");
+const sendMessage = require("../utils/email-sender");
+const CustomErrorHandler = require("../utils/custom-error-handler");
+const { accessToken, refreshToken } = require("../utils/token-generator");
 
 // register
 
@@ -62,9 +65,9 @@ async function verify(req, res, next) {
       throw CustomErrorHandler.NotFound("User not found");
     }
 
-    if (foundedUser.isVerified) {
-      throw CustomErrorHandler.BadRequest("User already verified");
-    }
+    // if (foundedUser.isVerified) {
+    //   throw CustomErrorHandler.BadRequest("User already verified");
+    // }
 
     const time = Date.now();
 
@@ -299,3 +302,4 @@ module.exports = {
   resendOTP,
   forgotPassword,
 };
+ 

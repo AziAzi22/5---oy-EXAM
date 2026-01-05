@@ -57,7 +57,13 @@ async function search(req, res, next) {
 
 const addBrand = async (req, res, next) => {
   try {
-    const { name, photo_of_brand } = req.body;
+    const { name } = req.body;
+
+    if (!req.file) {
+      throw new Error("Photo of brand is required");
+    }
+
+    const photo_of_brand = `/images/${req.file.filename}`;
 
     const admin_id = req.user.id;
 

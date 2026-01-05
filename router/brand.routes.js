@@ -10,6 +10,7 @@ const {
 const brandValidationMiddleware = require("../middleware/brand-validation.middleware");
 const authorization = require("../middleware/authorization");
 const superAdmin = require("../middleware/superadmin");
+const upload = require("../utils/multer");
 
 const BrandRouter = Router();
 
@@ -19,6 +20,7 @@ BrandRouter.get("/get_one_brand/:id", getOneBrand);
 BrandRouter.post(
   "/add_brand",
   authorization,
+    upload.single("photo_of_brand"),
   brandValidationMiddleware,
   addBrand
 );
