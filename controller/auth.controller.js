@@ -294,6 +294,57 @@ const logout = async (req, res, next) => {
   }
 };
 
+// change email
+
+// const changeEmail = async (req, res, next) => {
+//   try {
+//     const { email, old_password, new_password } = req.body;
+//     const { id } = req.user;
+//     const user = await AuthSchema.findById(id);
+
+//     const decode = await bcrypt.compare(old_password, user.password);
+
+//     if (!decode) {
+//       logger.warn(`Change email attempt with wrong password: ${email}`);
+
+//       throw CustomErrorHandler.UnAuthorized("Invalid password");
+//     }
+
+//     if (!user.isVerified) {
+//       logger.warn(`Forgot password attempt with non-verified email: ${email}`);
+
+//       throw CustomErrorHandler.UnAuthorized("user not verified");
+//     }
+
+//     const time = Date.now();
+
+//     if (time > user.otpTime) {
+//       logger.warn(`Forgot password attempt with expired otp: ${email}`);
+
+//       throw CustomErrorHandler.BadRequest("OTP time expired");
+//     }
+
+//     if (otp !== user.otp) {
+//       logger.warn(`Forgot password attempt with wrong otp: ${email}`);
+
+//       throw CustomErrorHandler.BadRequest("wrong verification code");
+//     }
+
+//     const hash = await bcrypt.hash(new_password, 14);
+
+//     user.email = email;
+//     user.password = hash;
+//     // user.isVerified = false;
+//     await user.save();
+
+//     res.status(200).json({
+//       message: "",
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
 module.exports = {
   register,
   login,
@@ -302,4 +353,3 @@ module.exports = {
   resendOTP,
   forgotPassword,
 };
- 
