@@ -20,8 +20,8 @@ BrandRouter.get("/get_one_brand/:id", getOneBrand);
 BrandRouter.post(
   "/add_brand",
   authorization,
-    upload.single("photo_of_brand"),
   brandValidationMiddleware,
+    upload.single("photo_of_brand"),
   addBrand
 );
 BrandRouter.put("/update_brand/:id", authorization, updateBrand);

@@ -53,13 +53,19 @@ const addCar = async (req, res, next) => {
       year,
       distance,
       price,
-      photo_of_car,
-      photo_of_inside,
-      photo_of_outside,
       description,
     } = req.body;
 
     const admin_id = req.user.id;
+
+    if (
+      !req.files ||
+      !req.files.photo_of_car ||
+      !req.files.photo_of_inside ||
+      !req.files.photo_of_outside
+    ) {
+      return res.status(400).json({ message: "All three images are required" });
+    }
 
     await CarSchema.create({
       brand_id,
@@ -75,6 +81,9 @@ const addCar = async (req, res, next) => {
       photo_of_inside,
       photo_of_outside,
       description,
+      photo_of_car: req.files.photo_of_car[0].filename,
+      photo_of_inside: req.files.photo_of_inside[0].filename,
+      photo_of_outside: req.files.photo_of_outside[0].filename,
       admin_id: admin_id,
     });
 
