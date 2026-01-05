@@ -17,7 +17,7 @@ module.exports = function (req, res, next) {
         username: decode.username,
         email: decode.email,
         role: decode.role,
-        id: decode._id,
+        id: decode.id,
       };
 
       const access_token = accessToken(payload);

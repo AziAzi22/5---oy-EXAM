@@ -42,6 +42,8 @@ async function search(req, res, next) {
 // add new car
 
 const addCar = async (req, res, next) => {
+  console.log(req.user);
+
   try {
     const {
       brand_id,
@@ -56,16 +58,25 @@ const addCar = async (req, res, next) => {
       description,
     } = req.body;
 
+    if (!req.user?.id) {
+      throw CustomErrorHandler.UnAuthorized("Invalid token payload");
+    }
+
     const admin_id = req.user.id;
 
     if (
-      !req.files ||
-      !req.files.photo_of_car ||
-      !req.files.photo_of_inside ||
-      !req.files.photo_of_outside
+      !req.files?.photo_of_car?.[0] ||
+      !req.files?.photo_of_inside?.[0] ||
+      !req.files?.photo_of_outside?.[0]
     ) {
-      return res.status(400).json({ message: "All three images are required" });
+      throw CustomErrorHandler.BadRequest({
+        message: "All three images are required",
+      });
     }
+
+    const photo_of_car = `/images/${req.files.photo_of_car[0].filename}`;
+    const photo_of_inside = `/images/${req.files.photo_of_inside[0].filename}`;
+    const photo_of_outside = `/images/${req.files.photo_of_outside[0].filename}`;
 
     await CarSchema.create({
       brand_id,
@@ -77,13 +88,10 @@ const addCar = async (req, res, next) => {
       year,
       distance,
       price,
-      photo_of_car,
-      photo_of_inside,
-      photo_of_outside,
+      photo_of_car: photo_of_car,
+      photo_of_inside: photo_of_inside,
+      photo_of_outside: photo_of_outside,
       description,
-      photo_of_car: req.files.photo_of_car[0].filename,
-      photo_of_inside: req.files.photo_of_inside[0].filename,
-      photo_of_outside: req.files.photo_of_outside[0].filename,
       admin_id: admin_id,
     });
 

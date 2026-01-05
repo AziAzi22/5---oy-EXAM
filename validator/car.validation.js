@@ -2,6 +2,7 @@ const Joi = require("joi");
 
 exports.CarValidator = function (data) {
   const schema = Joi.object({
+    brand_id: Joi.string().required(),
     model: Joi.string()
       .trim()
       .min(2)
@@ -12,7 +13,7 @@ exports.CarValidator = function (data) {
     color: Joi.string()
       .trim()
       .lowercase()
-      .valid([
+      .valid(
         "black",
         "white",
         "red",
@@ -24,15 +25,15 @@ exports.CarValidator = function (data) {
         "orange",
         "purple",
         "pink",
-        "silver",
-      ])
+        "silver"
+      )
       .required(),
     gearbox: Joi.string()
       .trim()
       .lowercase()
-      .valid(["manual", "automatic", "robot", "cvt"])
+      .valid("manual", "automatic", "robot", "cvt")
       .required(),
-    window_tint: Joi.boolean().default(false).required(),
+    window_tint: Joi.boolean().default(false),
     year: Joi.number()
       .integer()
       .max(new Date().getFullYear())

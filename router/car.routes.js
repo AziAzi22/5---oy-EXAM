@@ -17,12 +17,12 @@ CarRouter.get("/get_one/:id", getOneCar);
 CarRouter.post(
   "/add_car",
   authorization,
-  carValidationMiddleware,
   upload.fields([
     { name: "photo_of_car", maxCount: 1 },
     { name: "photo_of_inside", maxCount: 1 },
     { name: "photo_of_outside", maxCount: 1 },
   ]),
+  carValidationMiddleware,
   addCar
 );
 CarRouter.put("/update_car/:id", authorization, updateCar);

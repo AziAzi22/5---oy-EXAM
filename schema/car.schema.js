@@ -12,6 +12,7 @@ const Car = new Schema(
       set: (name) => name.trim(),
       minlength: 2,
       maxlength: 80,
+      unique: true,
       required: true,
     },
     engine: {
