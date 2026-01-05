@@ -42,8 +42,6 @@ async function search(req, res, next) {
 // add new car
 
 const addCar = async (req, res, next) => {
-  console.log(req.user);
-
   try {
     const {
       brand_id,
@@ -73,7 +71,6 @@ const addCar = async (req, res, next) => {
         message: "All three images are required",
       });
     }
-
     const photo_of_car = `/images/${req.files.photo_of_car[0].filename}`;
     const photo_of_inside = `/images/${req.files.photo_of_inside[0].filename}`;
     const photo_of_outside = `/images/${req.files.photo_of_outside[0].filename}`;
