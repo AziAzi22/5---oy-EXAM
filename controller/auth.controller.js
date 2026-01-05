@@ -1,5 +1,6 @@
-const AuthSchema = require("../schema/auth.schema")
+const AuthSchema = require("../schema/auth.schema");
 const bcrypt = require("bcryptjs");
+const logger = require("../utils/logger");
 
 // register
 
@@ -12,6 +13,8 @@ const register = async (req, res, next) => {
     });
 
     if (exists) {
+      logger.warn(`Register attempt with existing email/username: ${email}`);
+
       throw CustomErrorHandler.AlreadyExist("Email or username already exists");
     }
 
@@ -34,10 +37,14 @@ const register = async (req, res, next) => {
 
     await sendMessage(email, generatedCode);
 
+    logger.info(`user registered with email: ${email}`);
+
     res.status(201).json({
       message: "you are registred ✌️",
     });
   } catch (error) {
+    logger.error("Register error", error);
+
     next(error);
   }
 };
@@ -50,6 +57,8 @@ async function verify(req, res, next) {
     const foundedUser = await AuthSchema.findOne({ email });
 
     if (!foundedUser) {
+      logger.warn(`Verification attempt with non-existing email: ${email}`);
+
       throw CustomErrorHandler.NotFound("User not found");
     }
 
@@ -60,10 +69,14 @@ async function verify(req, res, next) {
     const time = Date.now();
 
     if (time > foundedUser.otpTime) {
+      logger.warn(`Verification attempt with expired OTP: ${email}`);
+
       throw CustomErrorHandler.BadRequest("OTP time expired");
     }
 
     if (otp !== foundedUser.otp) {
+      logger.warn(`Verification attempt with wrong OTP: ${email}`);
+
       throw CustomErrorHandler.BadRequest("wrong verification code");
     }
 
@@ -93,11 +106,15 @@ async function verify(req, res, next) {
       maxAge: 30 * 24 * 60 * 1000,
     });
 
+    logger.info(`user verified with email: ${email}`);
+
     res.status(200).json({
       message: "Succes",
       access_token,
     });
   } catch (error) {
+    logger.error("Verify error", error);
+
     next(error);
   }
 }
@@ -111,6 +128,8 @@ async function resendOTP(req, res, next) {
     const foundedUser = await AuthSchema.findOne({ email });
 
     if (!foundedUser) {
+      logger.warn(`Resend OTP attempt with non-existing email: ${email}`);
+
       throw CustomErrorHandler.UnAuthorized("you are not registered");
     }
 
@@ -126,10 +145,14 @@ async function resendOTP(req, res, next) {
 
     await sendMessage(email, generatedCode);
 
+    logger.info(`OTP resent email: ${email}`);
+
     res.status(200).json({
       message: "verification code resent",
     });
   } catch (error) {
+    logger.error("Resend OTP error", error);
+
     next(error);
   }
 }
@@ -143,16 +166,22 @@ const login = async (req, res, next) => {
     const user = await AuthSchema.findOne({ email }).select("+password");
 
     if (!user) {
+      logger.warn(`Login attempt with non-existing email: ${email}`);
+
       throw CustomErrorHandler.NotFound("you are not registered");
     }
 
     const decode = await bcrypt.compare(password, user.password);
 
     if (!decode) {
+      logger.warn(`Login attempt with wrong password: ${email}`);
+
       throw CustomErrorHandler.UnAuthorized("Invalid password");
     }
 
     if (!user.isVerified) {
+      logger.warn(`Login attempt with non-verified email: ${email}`);
+
       throw CustomErrorHandler.UnAuthorized("you are not verified");
     }
 
@@ -176,11 +205,15 @@ const login = async (req, res, next) => {
       maxAge: 30 * 24 * 60 * 1000,
     });
 
+    logger.info(`user logged with email: ${email}`);
+
     res.status(200).json({
       message: "Succes",
       access_token,
     });
   } catch (error) {
+    logger.error("Login error", error);
+
     next(error);
   }
 };
@@ -194,20 +227,28 @@ const forgotPassword = async (req, res, next) => {
     const user = await AuthSchema.findOne({ email });
 
     if (!user) {
+      logger.warn(`Forgot password attempt with non-existing email: ${email}`);
+
       throw CustomErrorHandler.UnAuthorized("User not found");
     }
 
     if (!user.isVerified) {
+      logger.warn(`Forgot password attempt with non-verified email: ${email}`);
+
       throw CustomErrorHandler.UnAuthorized("user not verified");
     }
 
     const time = Date.now();
 
     if (time > user.otpTime) {
+      logger.warn(`Forgot password attempt with expired otp: ${email}`);
+
       throw CustomErrorHandler.BadRequest("OTP time expired");
     }
 
     if (otp !== user.otp) {
+      logger.warn(`Forgot password attempt with wrong otp: ${email}`);
+
       throw CustomErrorHandler.BadRequest("wrong verification code");
     }
 
@@ -219,10 +260,14 @@ const forgotPassword = async (req, res, next) => {
       otpTime: null,
     });
 
+    logger.info(`user forgot password with email: ${email}`);
+
     res.status(200).json({
       message: "Password changed",
     });
   } catch (error) {
+    logger.error("Forgot password error", error);
+
     next(error);
   }
 };
@@ -233,10 +278,15 @@ const logout = async (req, res, next) => {
   try {
     res.clearCookie("access_token");
     res.clearCookie("refresh_token");
+
+    logger.info("user logged out");
+
     res.status(200).json({
       message: "you are logged out",
     });
   } catch (error) {
+    logger.error("Logout error", error);
+
     next(error);
   }
 };

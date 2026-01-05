@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -6,7 +7,7 @@ const authRouter = require("./router/auth.routes");
 const BrandRouter = require("./router/brand.routes");
 const CarRouter = require("./router/car.routes");
 const errorMiddleware = require("./middleware/error.middleware");
-require("dotenv").config();
+const logger = require("./utils/logger");
 
 const app = express();
 
@@ -15,6 +16,11 @@ app.use(express.json());
 app.use(cookieParser());
 
 connectDB();
+
+// logger.warn("warning logger");
+// logger.info("info logger");
+// logger.debug("debug logger");
+// logger.error("error logger");
 
 // routes
 

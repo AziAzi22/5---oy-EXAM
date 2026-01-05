@@ -1,0 +1,248 @@
+warn: warning logger
+info: info logger
+debug: debug logger
+warn: warning logger
+info: info logger
+debug: debug logger
+warn: warning logger
+info: info logger
+debug: debug logger
+
+warn: warning logger
+info: info logger
+debug: debug logger
+warn: warning logger
+info: info logger
+debug: debug logger
+warn: warning logger
+info: info logger
+debug: debug logger
+warn: warning logger
+info: info logger
+debug: debug logger
+[33mwarn[39m: warning logger {"timestamp":"2026-01-05T10:44:48.659Z"}
+[32minfo[39m: info logger {"timestamp":"2026-01-05T10:44:48.661Z"}
+[34mdebug[39m: debug logger {"timestamp":"2026-01-05T10:44:48.661Z"}
+[33mwarn[39m: warning logger {"timestamp":"2026-01-05T10:45:00.095Z"}
+[32minfo[39m: info logger {"timestamp":"2026-01-05T10:45:00.097Z"}
+[34mdebug[39m: debug logger {"timestamp":"2026-01-05T10:45:00.097Z"}
+[33mwarn[39m: warning logger
+[32minfo[39m: info logger
+[34mdebug[39m: debug logger
+[33mwarn[39m: warning logger {"timestamp":"2026-01-05T10:45:49.687Z"}
+[32minfo[39m: info logger {"timestamp":"2026-01-05T10:45:49.688Z"}
+[34mdebug[39m: debug logger {"timestamp":"2026-01-05T10:45:49.689Z"}
+[33mwarn[39m: [33mwarning logger[39m {"timestamp":"2026-01-05T10:46:10.706Z"}
+[32minfo[39m: [32minfo logger[39m {"timestamp":"2026-01-05T10:46:10.708Z"}
+[34mdebug[39m: [34mdebug logger[39m {"timestamp":"2026-01-05T10:46:10.708Z"}
+[33mwarn[39m: [33mwarning logger[39m {"timestamp":"2026-01-05T10:48:47.086Z"}
+[32minfo[39m: [32minfo logger[39m {"timestamp":"2026-01-05T10:48:47.088Z"}
+[34mdebug[39m: [34mdebug logger[39m {"timestamp":"2026-01-05T10:48:47.088Z"}
+[31merror[39m: [31merror logger[39m {"timestamp":"2026-01-05T10:48:47.088Z"}
+[33mwarn[39m: [33mwarning logger[39m {"timestamp":"2026-01-05T10:49:12.740Z"}
+[32minfo[39m: [32minfo logger[39m {"timestamp":"2026-01-05T10:49:12.742Z"}
+[34mdebug[39m: [34mdebug logger[39m {"timestamp":"2026-01-05T10:49:12.742Z"}
+[31merror[39m: [31merror logger[39m {"timestamp":"2026-01-05T10:49:12.742Z"}
+[33mwarn[39m: [33mwarning logger[39m {"timestamp":"2026-01-05T10:50:16.355Z"}
+[32minfo[39m: [32minfo logger[39m {"timestamp":"2026-01-05T10:50:16.357Z"}
+[34mdebug[39m: [34mdebug logger[39m {"timestamp":"2026-01-05T10:50:16.357Z"}
+[31merror[39m: [31merror logger[39m {"timestamp":"2026-01-05T10:50:16.357Z"}
+warn: warning logger {"timestamp":"2026-01-05T10:50:23.948Z"}
+info: info logger {"timestamp":"2026-01-05T10:50:23.949Z"}
+debug: debug logger {"timestamp":"2026-01-05T10:50:23.950Z"}
+error: error logger {"timestamp":"2026-01-05T10:50:23.950Z"}
+warn: warning logger {"timestamp":"2026-01-05T10:50:29.781Z"}
+info: info logger {"timestamp":"2026-01-05T10:50:29.782Z"}
+debug: debug logger {"timestamp":"2026-01-05T10:50:29.783Z"}
+error: error logger {"timestamp":"2026-01-05T10:50:29.783Z"}
+warn: warning logger {"timestamp":"2026-01-05T10:57:47.160Z"}
+info: info logger {"timestamp":"2026-01-05T10:57:47.161Z"}
+debug: debug logger {"timestamp":"2026-01-05T10:57:47.162Z"}
+error: error logger {"timestamp":"2026-01-05T10:57:47.162Z"}
+warn: warning logger {"timestamp":"2026-01-05T10:58:12.450Z"}
+info: info logger {"timestamp":"2026-01-05T10:58:12.451Z"}
+debug: debug logger {"timestamp":"2026-01-05T10:58:12.452Z"}
+error: error logger {"timestamp":"2026-01-05T10:58:12.452Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:02:31.774Z"}
+info: info logger {"timestamp":"2026-01-05T11:02:31.776Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:02:31.777Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:02:52.388Z"}
+info: info logger {"timestamp":"2026-01-05T11:02:52.390Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:02:52.391Z"}
+error: error logger {"timestamp":"2026-01-05T11:02:52.391Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:04:06.953Z"}
+info: info logger {"timestamp":"2026-01-05T11:04:06.954Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:04:06.955Z"}
+error: error logger {"timestamp":"2026-01-05T11:04:06.955Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:05:31.443Z"}
+info: info logger {"timestamp":"2026-01-05T11:05:31.445Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:05:31.445Z"}
+error: error logger {"timestamp":"2026-01-05T11:05:31.446Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:05:35.419Z"}
+info: info logger {"timestamp":"2026-01-05T11:05:35.420Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:05:35.421Z"}
+error: error logger {"timestamp":"2026-01-05T11:05:35.421Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:05:39.689Z"}
+info: info logger {"timestamp":"2026-01-05T11:05:39.691Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:05:39.691Z"}
+error: error logger {"timestamp":"2026-01-05T11:05:39.691Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:05:43.829Z"}
+info: info logger {"timestamp":"2026-01-05T11:05:43.831Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:05:43.831Z"}
+error: error logger {"timestamp":"2026-01-05T11:05:43.831Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:06:31.587Z"}
+info: info logger {"timestamp":"2026-01-05T11:06:31.588Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:06:31.589Z"}
+error: error logger {"timestamp":"2026-01-05T11:06:31.589Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:06:34.527Z"}
+info: info logger {"timestamp":"2026-01-05T11:06:34.528Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:06:34.528Z"}
+error: error logger {"timestamp":"2026-01-05T11:06:34.529Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:06:38.638Z"}
+info: info logger {"timestamp":"2026-01-05T11:06:38.640Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:06:38.640Z"}
+error: error logger {"timestamp":"2026-01-05T11:06:38.640Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:07:00.518Z"}
+info: info logger {"timestamp":"2026-01-05T11:07:00.519Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:07:00.520Z"}
+error: error logger {"timestamp":"2026-01-05T11:07:00.520Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:07:19.843Z"}
+info: info logger {"timestamp":"2026-01-05T11:07:19.845Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:07:19.845Z"}
+error: error logger {"timestamp":"2026-01-05T11:07:19.846Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:07:44.180Z"}
+info: info logger {"timestamp":"2026-01-05T11:07:44.182Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:07:44.182Z"}
+error: error logger {"timestamp":"2026-01-05T11:07:44.182Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:08:53.880Z"}
+info: info logger {"timestamp":"2026-01-05T11:08:53.882Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:08:53.882Z"}
+error: error logger {"timestamp":"2026-01-05T11:08:53.883Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:11:39.639Z"}
+info: info logger {"timestamp":"2026-01-05T11:11:39.641Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:11:39.641Z"}
+error: error logger {"timestamp":"2026-01-05T11:11:39.641Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:11:53.505Z"}
+info: info logger {"timestamp":"2026-01-05T11:11:53.507Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:11:53.507Z"}
+error: error logger {"timestamp":"2026-01-05T11:11:53.508Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:12:37.145Z"}
+info: info logger {"timestamp":"2026-01-05T11:12:37.146Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:12:37.147Z"}
+error: error logger {"timestamp":"2026-01-05T11:12:37.147Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:12:50.251Z"}
+info: info logger {"timestamp":"2026-01-05T11:12:50.252Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:12:50.253Z"}
+error: error logger {"timestamp":"2026-01-05T11:12:50.253Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:13:55.709Z"}
+info: info logger {"timestamp":"2026-01-05T11:13:55.711Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:13:55.711Z"}
+error: error logger {"timestamp":"2026-01-05T11:13:55.711Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:14:08.076Z"}
+info: info logger {"timestamp":"2026-01-05T11:14:08.078Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:14:08.078Z"}
+error: error logger {"timestamp":"2026-01-05T11:14:08.079Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:15:38.257Z"}
+info: info logger {"timestamp":"2026-01-05T11:15:38.259Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:15:38.259Z"}
+error: error logger {"timestamp":"2026-01-05T11:15:38.259Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:17:20.671Z"}
+info: info logger {"timestamp":"2026-01-05T11:17:20.673Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:17:20.673Z"}
+error: error logger {"timestamp":"2026-01-05T11:17:20.673Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:20:13.775Z"}
+info: info logger {"timestamp":"2026-01-05T11:20:13.777Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:20:13.777Z"}
+error: error logger {"timestamp":"2026-01-05T11:20:13.777Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:25:24.735Z"}
+info: info logger {"timestamp":"2026-01-05T11:25:24.737Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:25:24.737Z"}
+error: error logger {"timestamp":"2026-01-05T11:25:24.737Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:26:23.842Z"}
+info: info logger {"timestamp":"2026-01-05T11:26:23.844Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:26:23.844Z"}
+error: error logger {"timestamp":"2026-01-05T11:26:23.845Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:28:59.413Z"}
+info: info logger {"timestamp":"2026-01-05T11:28:59.415Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:28:59.415Z"}
+error: error logger {"timestamp":"2026-01-05T11:28:59.416Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:29:56.826Z"}
+info: info logger {"timestamp":"2026-01-05T11:29:56.828Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:29:56.828Z"}
+error: error logger {"timestamp":"2026-01-05T11:29:56.828Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:30:26.713Z"}
+info: info logger {"timestamp":"2026-01-05T11:30:26.714Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:30:26.715Z"}
+error: error logger {"timestamp":"2026-01-05T11:30:26.715Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:30:54.801Z"}
+info: info logger {"timestamp":"2026-01-05T11:30:54.802Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:30:54.803Z"}
+error: error logger {"timestamp":"2026-01-05T11:30:54.803Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:31:38.080Z"}
+info: info logger {"timestamp":"2026-01-05T11:31:38.082Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:31:38.082Z"}
+error: error logger {"timestamp":"2026-01-05T11:31:38.082Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:31:50.663Z"}
+info: info logger {"timestamp":"2026-01-05T11:31:50.665Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:31:50.665Z"}
+error: error logger {"timestamp":"2026-01-05T11:31:50.665Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:32:27.542Z"}
+info: info logger {"timestamp":"2026-01-05T11:32:27.544Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:32:27.544Z"}
+error: error logger {"timestamp":"2026-01-05T11:32:27.544Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:34:01.527Z"}
+info: info logger {"timestamp":"2026-01-05T11:34:01.529Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:34:01.529Z"}
+error: error logger {"timestamp":"2026-01-05T11:34:01.530Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:34:04.183Z"}
+info: info logger {"timestamp":"2026-01-05T11:34:04.184Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:34:04.185Z"}
+error: error logger {"timestamp":"2026-01-05T11:34:04.185Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:34:46.743Z"}
+info: info logger {"timestamp":"2026-01-05T11:34:46.745Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:34:46.745Z"}
+error: error logger {"timestamp":"2026-01-05T11:34:46.746Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:34:59.883Z"}
+info: info logger {"timestamp":"2026-01-05T11:34:59.884Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:34:59.885Z"}
+error: error logger {"timestamp":"2026-01-05T11:34:59.885Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:35:01.328Z"}
+info: info logger {"timestamp":"2026-01-05T11:35:01.330Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:35:01.330Z"}
+error: error logger {"timestamp":"2026-01-05T11:35:01.330Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:35:59.338Z"}
+info: info logger {"timestamp":"2026-01-05T11:35:59.339Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:35:59.340Z"}
+error: error logger {"timestamp":"2026-01-05T11:35:59.340Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:36:21.371Z"}
+info: info logger {"timestamp":"2026-01-05T11:36:21.373Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:36:21.373Z"}
+error: error logger {"timestamp":"2026-01-05T11:36:21.373Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:37:58.527Z"}
+info: info logger {"timestamp":"2026-01-05T11:37:58.529Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:37:58.529Z"}
+error: error logger {"timestamp":"2026-01-05T11:37:58.529Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:38:42.204Z"}
+info: info logger {"timestamp":"2026-01-05T11:38:42.206Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:38:42.206Z"}
+error: error logger {"timestamp":"2026-01-05T11:38:42.207Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:38:46.934Z"}
+info: info logger {"timestamp":"2026-01-05T11:38:46.936Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:38:46.936Z"}
+error: error logger {"timestamp":"2026-01-05T11:38:46.937Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:39:00.643Z"}
+info: info logger {"timestamp":"2026-01-05T11:39:00.645Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:39:00.646Z"}
+error: error logger {"timestamp":"2026-01-05T11:39:00.646Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:39:08.015Z"}
+info: info logger {"timestamp":"2026-01-05T11:39:08.016Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:39:08.017Z"}
+error: error logger {"timestamp":"2026-01-05T11:39:08.017Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:39:37.264Z"}
+info: info logger {"timestamp":"2026-01-05T11:39:37.265Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:39:37.266Z"}
+error: error logger {"timestamp":"2026-01-05T11:39:37.266Z"}
+warn: warning logger {"timestamp":"2026-01-05T11:39:48.626Z"}
+info: info logger {"timestamp":"2026-01-05T11:39:48.628Z"}
+debug: debug logger {"timestamp":"2026-01-05T11:39:48.629Z"}
+error: error logger {"timestamp":"2026-01-05T11:39:48.629Z"}

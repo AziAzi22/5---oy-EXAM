@@ -1,6 +1,6 @@
-const BrandSchema = require("../schema/brand.schema");
 const CarSchema = require("../schema/car.schema");
 const CustomErrorHandler = require("../utils/custom-error-handler");
+const logger = require("../utils/logger");
 
 // get all cars
 
@@ -8,8 +8,12 @@ const getAllCars = async (req, res, next) => {
   try {
     const cars = await CarSchema.find();
 
+    logger.info("Cars fetched", { count: cars.length });
+
     res.status(200).json(cars);
   } catch (error) {
+    logger.error("Car fetch error", error.message);
+
     next(error);
   }
 };
@@ -29,6 +33,8 @@ async function search(req, res, next) {
 
     res.status(200).json(searchingResult);
   } catch (error) {
+    logger.error("Car search error", error.message);
+
     next(error);
   }
 }
@@ -72,10 +78,14 @@ const addCar = async (req, res, next) => {
       admin_id: admin_id,
     });
 
+    logger.info("New Car added from admin", admin_id);
+
     res.status(201).json({
       message: "Added new Car",
     });
   } catch (error) {
+    logger.error("Car add error", error.message);
+
     next(error);
   }
 };
@@ -88,11 +98,17 @@ const getOneCar = async (req, res, next) => {
     const Car = await CarSchema.findById(id);
 
     if (!Car) {
+      logger.warn("Car not found");
+
       throw CustomErrorHandler.NotFound("Car not found");
     }
 
+    logger.info("Car fetched", { car_id: id });
+
     res.status(200).json(Car);
   } catch (error) {
+    logger.error("Car fetch error", error.message);
+
     next(error);
   }
 };
@@ -105,6 +121,8 @@ async function updateCar(req, res, next) {
     const Car = await CarSchema.findById(id);
 
     if (!Car) {
+      logger.warn("Car not found");
+
       throw CustomErrorHandler.NotFound("Car not found");
     }
 
@@ -140,10 +158,14 @@ async function updateCar(req, res, next) {
       description,
     });
 
+    logger.info("Car updated from admin", req.user.id);
+
     res.status(200).json({
       message: "Car updated",
     });
   } catch (error) {
+    logger.error("Car update error", error.message);
+
     next(error);
   }
 }
@@ -156,6 +178,8 @@ async function deleteCar(req, res, next) {
     const Car = await CarSchema.findById(id);
 
     if (!Car) {
+      logger.warn("Car not found");
+
       throw CustomErrorHandler.NotFound("Car not found");
     }
 
@@ -165,10 +189,13 @@ async function deleteCar(req, res, next) {
 
     await CarSchema.findByIdAndDelete(id);
 
+    logger.info("Car deleted from admin", req.user.id);
+
     res.status(200).json({
       message: "Car deleted",
     });
   } catch (error) {
+    logger.error("Car delete error", error.message);
     next(error);
   }
 }
