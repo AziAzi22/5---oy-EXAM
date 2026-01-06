@@ -2,6 +2,10 @@ const { Schema, model, set } = require("mongoose");
 
 const Auth = new Schema(
   {
+    picture: {
+      type: String,
+      default: "../upload/images/default_photo_for_profile.png",
+    },
     username: {
       type: String,
       unique: [true, "Username already exists"],

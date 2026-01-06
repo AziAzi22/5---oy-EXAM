@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Authentication API
+  description: User authentication system (register, verify, login, logout, refresh token)
+  version: 1.0.0
+servers:
+  - url: http://localhost:4001
+    description: Local server
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+paths:
+  /register:
+    post:
+      tags:
+        - Auth
+      summary: register new user
+      description: Create new user with email, username, and password. Sends OTP to email.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to upload
+                description:
+                  type: string
+                  description: A description of the file
+      responses:
+        201:
+          description: Registered successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Registered
+        401:
+          description: User already exists
+
+  /verify:
+    post:
+      tags:
+        - Auth
+      summary: Verify user OTP
+      description: Verify user's email by entering OTP received via email.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - otp
+              properties:
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+                otp:
+                  type: string
+                  example: "123456"
+      responses:
+        201:
+          description: Verified successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Verified
+        401:
+          description: Wrong or expired OTP
+
+  /login:
+    post:
+      tags:
+        - Auth
+      summary: Login user
+      description: login user 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+                password:
+                  type: string
+                  example: "as123456"
+      responses:
+        201:
+          description: logging successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Logged in
+        401:
+          description: Wrong password
+
+  /get_all_books:
+    get:
+      tags:
+        - Books
+      summary: Get all books
+      description: Retrieve all books with author info.
+      responses:
+        200:
+          description: A list of all books
+          content:
+            application/json:
+              schema:
+                type: array
+
+  /get_authors_books/{id}:
+    get:
+      tags:
+        - Books
+      summary: Get books by author
+      description: Retrieve all books written by a specific author.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Author ID
+          schema:
+            type: string
+            example: 670f1e91a81d4a2464bfe1cd
+      responses:
+        200:
+          description: List of books by the author
+          content:
+            application/json:
+              schema:
+                type: array
+
+        404:
+          description: Author not found
+
+  /search_books:
+    get:
+      tags:
+        - Books
+      summary: Search books by name
+      description: Search for books with titles matching a keyword (case-insensitive).
+      parameters:
+        - name: name
+          in: query
+          required: true
+          description: Book title or keyword
+          schema:
+            type: string
+            example: "Harry"
+      responses:
+        200:
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: array
