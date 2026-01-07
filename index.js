@@ -21,11 +21,11 @@ const app = express();
 
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true })); 
 app.use(cookieParser());
 
 connectDB();
-
+ 
 // logger.warn("warning logger");
 // logger.info("info logger");
 // logger.debug("debug logger");
@@ -36,7 +36,7 @@ connectDB();
 app.use(authRouter);
 app.use(BrandRouter);
 app.use(CarRouter);
-app.use(adminRouter);
+app.use(adminRouter); 
 app.use(userRouter);
 
 // swagger

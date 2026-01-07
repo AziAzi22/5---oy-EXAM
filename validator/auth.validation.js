@@ -28,7 +28,12 @@ const ResendOTPValidator = async (data) =>
 
 const RegisterValidator = async (data) =>
   Joi.object({
-    username: Joi.string().trim().alphanum().min(3).max(30).required(),
+    username: Joi.string()
+      .trim()
+      .min(3)
+      .max(30)
+      .pattern(/^[a-zA-Z0-9 ]+$/)
+      .required(),
     email: Joi.string().email().required(),
     password: Joi.string().trim().min(8).required(),
     birth_year: Joi.number()

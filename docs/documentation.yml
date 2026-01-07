@@ -24,17 +24,27 @@ paths:
       requestBody:
         required: true
         content:
-          multipart/form-data:
+          application/json:
             schema:
               type: object
+              required:
+                - username
+                - email
+                - password
+                - birth_year
               properties:
-                file:
+                username:
                   type: string
-                  format: binary
-                  description: The file to upload
-                description:
+                  example: "FTA"
+                email:
                   type: string
-                  description: A description of the file
+                  example: aziazi22t@gmail.com
+                password:
+                  type: string
+                  example: "12345678"
+                birth_year:
+                  type: integer
+                  example: 2003
       responses:
         201:
           description: Registered successfully
@@ -46,8 +56,9 @@ paths:
                   message:
                     type: string
                     example: Registered
-        401:
+        400:
           description: User already exists
+
 
   /verify:
     post:
@@ -67,12 +78,12 @@ paths:
               properties:
                 email:
                   type: string
-                  example: johndoe@gmail.com
+                  example: aziazi22t@gmail.com
                 otp:
                   type: string
                   example: "123456"
       responses:
-        201:
+        200:
           description: Verified successfully
           content:
             application/json:
@@ -84,6 +95,7 @@ paths:
                     example: Verified
         401:
           description: Wrong or expired OTP
+
 
   /login:
     post:
@@ -103,12 +115,12 @@ paths:
               properties:
                 email:
                   type: string
-                  example: johndoe@gmail.com
+                  example: aziazi22t@gmail.com
                 password:
                   type: string
-                  example: "as123456"
+                  example: "12345678"
       responses:
-        201:
+        200:
           description: logging successfully
           content:
             application/json:
@@ -121,7 +133,106 @@ paths:
         401:
           description: Wrong password
 
-  /get_all_books:
+
+  /resend_otp:
+    post:
+      tags:
+        - Auth
+      summary: Resend OTP
+      description: Resend OTP
+      requestBody: 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  example: aziazi22t@gmail.com
+      responses:
+        200:
+          description: otp resent
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Otp resent
+        401:
+          description: User not found
+
+
+  /forgot_password:
+    post:
+      tags:
+        - Auth
+      summary: forgot password
+      description: forgot password
+      requestBody: 
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - new_password
+                - otp
+              properties:
+                email:
+                  type: string
+                  example: aziazi22t@gmail.com
+                new_password:
+                  type: string
+                  example: "12345679"
+                otp:
+                  type: string
+                  example: "123456"
+      responses:
+        200:
+          description: password changed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Password changed
+        401:
+          description: user not found
+        400:
+          description: Wrong or expired OTP
+
+
+  /logout:
+    get:
+      tags:
+        - Auth
+      summary: logout
+      description: logout
+      responses:
+        200:
+          description: logout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Logged out
+        401:
+          description: User not found
+
+
+
+  /get-all-books:
     get:
       tags:
         - Books
@@ -135,7 +246,7 @@ paths:
               schema:
                 type: array
 
-  /get_authors_books/{id}:
+  /get-authors-books/{id}:
     get:
       tags:
         - Books

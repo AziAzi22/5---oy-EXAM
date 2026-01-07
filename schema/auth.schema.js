@@ -9,10 +9,10 @@ const Auth = new Schema(
     username: {
       type: String,
       unique: [true, "Username already exists"],
-      required: [true, "Username is required"],
       set: (value) => value.trim(),
       minLength: [3, "Username must be at least 3 characters long"],
       maxLength: [30, "Username must be at most 30 characters long"],
+      required: [true, "Username is required"],
     },
     email: {
       type: String,

@@ -16,7 +16,7 @@ const sendMessage = async (email, code) => {
     return await transporter.sendMail({
       from: "aziazi22t@gmail.com",
       to: email,
-      subject: "Library verification code",
+      subject: "auto wiki verification code",
       text: "bu kod tasdiqlash uchun",
       html: `<h1><b>${code}</b></h1><br><h3><b>you have 5 minutes to verify</b></h3>`,
     });
