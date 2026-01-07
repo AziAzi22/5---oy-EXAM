@@ -4,7 +4,7 @@ const Auth = new Schema(
   {
     picture: {
       type: String,
-      default: "../upload/images/default_photo_for_profile.png",
+      required: [true, "Picture is required"],
     },
     username: {
       type: String,

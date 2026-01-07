@@ -4,6 +4,7 @@ const logger = require("../utils/logger");
 const sendMessage = require("../utils/email-sender");
 const CustomErrorHandler = require("../utils/custom-error-handler");
 const { accessToken, refreshToken } = require("../utils/token-generator");
+const { otpGenerator } = require("../utils/otp-generator");
 
 // register
 
@@ -23,13 +24,12 @@ const register = async (req, res, next) => {
 
     const hash = await bcrypt.hash(password, 14);
 
-    const generatedCode = Array.from({ length: 6 }, () =>
-      Math.floor(Math.random() * 10)
-    ).join("");
+    const generatedCode = otpGenerator()
 
     const time = Date.now() + 5 * 60 * 1000;
 
     await AuthSchema.create({
+      picture: "../upload/images/default_photo_for_profile.png",
       username,
       email,
       password: hash,
@@ -136,9 +136,7 @@ async function resendOTP(req, res, next) {
       throw CustomErrorHandler.UnAuthorized("you are not registered");
     }
 
-    const generatedCode = Array.from({ length: 6 }, () =>
-      Math.floor(Math.random() * 10)
-    ).join("");
+    const generatedCode = otpGenerator()
 
     const time = Date.now() + 5 * 60 * 1000;
 
@@ -293,57 +291,6 @@ const logout = async (req, res, next) => {
     next(error);
   }
 };
-
-// change email
-
-// const changeEmail = async (req, res, next) => {
-//   try {
-//     const { email, old_password, new_password } = req.body;
-//     const { id } = req.user;
-//     const user = await AuthSchema.findById(id);
-
-//     const decode = await bcrypt.compare(old_password, user.password);
-
-//     if (!decode) {
-//       logger.warn(`Change email attempt with wrong password: ${email}`);
-
-//       throw CustomErrorHandler.UnAuthorized("Invalid password");
-//     }
-
-//     if (!user.isVerified) {
-//       logger.warn(`Forgot password attempt with non-verified email: ${email}`);
-
-//       throw CustomErrorHandler.UnAuthorized("user not verified");
-//     }
-
-//     const time = Date.now();
-
-//     if (time > user.otpTime) {
-//       logger.warn(`Forgot password attempt with expired otp: ${email}`);
-
-//       throw CustomErrorHandler.BadRequest("OTP time expired");
-//     }
-
-//     if (otp !== user.otp) {
-//       logger.warn(`Forgot password attempt with wrong otp: ${email}`);
-
-//       throw CustomErrorHandler.BadRequest("wrong verification code");
-//     }
-
-//     const hash = await bcrypt.hash(new_password, 14);
-
-//     user.email = email;
-//     user.password = hash;
-//     // user.isVerified = false;
-//     await user.save();
-
-//     res.status(200).json({
-//       message: "",
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
 
 module.exports = {
   register,

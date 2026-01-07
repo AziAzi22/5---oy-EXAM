@@ -8,12 +8,13 @@ const BrandRouter = require("./router/brand.routes");
 const CarRouter = require("./router/car.routes");
 const errorMiddleware = require("./middleware/error.middleware");
 // const logger = require("./utils/logger");
-const adminRouter = require("./router/admin.routes");   
+const adminRouter = require("./router/admin.routes");
 
 // swagger
 
 const YAML = require("yamljs");
 const swaggerUi = require("swagger-ui-express");
+const userRouter = require("./router/user.routes");
 const swaggerDocs = YAML.load("./docs/documentation.yml");
 
 const app = express();
@@ -35,11 +36,12 @@ connectDB();
 app.use(authRouter);
 app.use(BrandRouter);
 app.use(CarRouter);
-app.use(adminRouter); 
+app.use(adminRouter);
+app.use(userRouter);
 
 // swagger
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // error handler
 

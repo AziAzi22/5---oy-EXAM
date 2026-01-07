@@ -41,6 +41,9 @@ exports.CarValidator = function (data) {
       .required(),
     distance: Joi.number().min(0).required(),
     price: Joi.number().min(1).required(),
+    photo_of_car: Joi.string().required(),
+    photo_of_inside: Joi.string().required(),
+    photo_of_outside: Joi.string().required(),
     description: Joi.string().trim().min(5).max(5000).required(),
   });
 

@@ -5,12 +5,12 @@ const {
   getAllUser,
   downgrade,
 } = require("../controller/admin.controller");
-const authorization = require("../middleware/authorization");
+const checkAdmin = require("../middleware/check-admin");
 
 const adminRouter = Router();
 
-adminRouter.put("/role_upgrade", authorization, superAdmin, roleUpgrade);
-adminRouter.get("/get_all_user", authorization, superAdmin, getAllUser);
-adminRouter.put("/role_downgrade", authorization, superAdmin, downgrade);
+adminRouter.put("/role_upgrade", checkAdmin, superAdmin, roleUpgrade);
+adminRouter.get("/get_all_user", checkAdmin, superAdmin, getAllUser);
+adminRouter.put("/role_downgrade", checkAdmin, superAdmin, downgrade);
 
 module.exports = adminRouter;

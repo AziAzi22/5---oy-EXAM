@@ -8,6 +8,7 @@ exports.BrandValidator = function (data) {
       .max(80)
       .pattern(/^[A-Za-z0-9\s-]+$/)
       .required(),
+    photo_of_brand: Joi.string().required(),
   });
 
   return schema.validate(data, { abortEarly: false });
