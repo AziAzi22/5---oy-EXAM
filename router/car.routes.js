@@ -26,7 +26,7 @@ CarRouter.post(
   carValidationMiddleware,
   addCar
 );
-CarRouter.put("/update_car/:id", checkAdmin, updateCar);
+CarRouter.patch("/update_car/:id", checkAdmin, updateCar);
 CarRouter.delete("/delete_car/:id", checkAdmin, deleteCar);
 
 module.exports = CarRouter;

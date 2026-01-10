@@ -3,6 +3,7 @@ const CustomErrorHandler = require("../utils/custom-error-handler");
 
 const authorization = (req, res, next) => {
   try {
+    
     const access_token = req.cookies.access_token;
 
     if (!access_token) {

@@ -59,7 +59,7 @@ const VerifyValidatorMiddleware = function (req, res, next) {
   next();
 };
 
-// vresend otp
+// resend otp
 
 const ResendOTPValidatorMiddleware = function (req, res, next) {
   const { error } = ResendOTPValidator(req.body);
@@ -76,7 +76,7 @@ const ResendOTPValidatorMiddleware = function (req, res, next) {
   next();
 };
 
-// vresend otp
+//  forgot password
 
 const ForgotPasswordValidatorMiddleware = function (req, res, next) {
   const { error } = ForgotPasswordValidator(req.body);

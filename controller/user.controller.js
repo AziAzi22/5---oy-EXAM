@@ -70,6 +70,7 @@ const changePicture = async (req, res, next) => {
     }
 
     const picture = `/images/${req.file.filename}`;
+    "/images/default_photo_for_profile.png"
 
     const id = req.user.id;
 

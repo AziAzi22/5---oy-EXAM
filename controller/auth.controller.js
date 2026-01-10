@@ -29,7 +29,7 @@ const register = async (req, res, next) => {
     const time = Date.now() + 5 * 60 * 1000;
 
     await AuthSchema.create({
-      picture: "../upload/images/default_photo_for_profile.png",
+      picture: "/images/default_photo_for_profile.png",
       username,
       email,
       password: hash,

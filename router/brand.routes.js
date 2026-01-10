@@ -25,7 +25,7 @@ BrandRouter.post(
   brandValidationMiddleware,
   addBrand
 );
-BrandRouter.put("/update_brand/:id", checkAdmin, updateBrand);
+BrandRouter.patch("/update_brand/:id", checkAdmin, updateBrand);
 BrandRouter.delete("/delete_brand/:id", superAdmin, deleteBrand);
 
 module.exports = BrandRouter;

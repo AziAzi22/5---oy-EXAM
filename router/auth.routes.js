@@ -15,6 +15,7 @@ const {
   ResendOTPValidatorMiddleware,
   ForgotPasswordValidatorMiddleware,
 } = require("../middleware/auth-validation.middleware");
+const authorization = require("../middleware/authorization");
 
 const authRouter = Router();
 
@@ -26,6 +27,7 @@ authRouter.get("/logout", logout);
 authRouter.post("/resend_otp", ResendOTPValidatorMiddleware, resendOTP);
 authRouter.post(
   "/forgot_password",
+  authorization,
   ForgotPasswordValidatorMiddleware,
   forgotPassword
 );
