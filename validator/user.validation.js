@@ -24,7 +24,7 @@ const changeBirthYearValidator = async (data) =>
     birth_year: Joi.number()
       .integer()
       .min(1900)
-      .max(new Date().getFullYear())
+      .max(new Date().getFullYear() - 16)
       .required(),
   }).validate(data, { abortEarly: false });
 

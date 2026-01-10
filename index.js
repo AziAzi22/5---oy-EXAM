@@ -10,9 +10,9 @@ const errorMiddleware = require("./middleware/error.middleware");
 // const logger = require("./utils/logger");
 const adminRouter = require("./router/admin.routes");
 
-// swagger
+// swagger 
 
-const YAML = require("yamljs");
+const YAML = require("yamljs"); 
 const swaggerUi = require("swagger-ui-express");
 const userRouter = require("./router/user.routes");
 const swaggerDocs = YAML.load("./docs/documentation.yml");
@@ -45,7 +45,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // error handler
 
-app.use(errorMiddleware);
+app.use(errorMiddleware); 
 
 // multer/
 

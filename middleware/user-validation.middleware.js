@@ -4,8 +4,8 @@ const { changeEmailValidator, changeBirthYearValidator, changeUsernameValidator,
 
 // change email
 
-const changeEmailValidatorMiddleware = function (req, res, next) {
-  const { error } = changeEmailValidator(req.body);
+const changeEmailValidatorMiddleware = async function (req, res, next) {
+  const { error } = await changeEmailValidator(req.body);
 
   if (error) {
     // logger.warn("Change email validation failed", {
@@ -22,8 +22,8 @@ const changeEmailValidatorMiddleware = function (req, res, next) {
 
 // change birth year
 
-const changeBirthYearValidatorMiddleware = function (req, res, next) {
-  const { error } = changeBirthYearValidator(req.body);
+const changeBirthYearValidatorMiddleware = async function (req, res, next) {
+  const { error } = await changeBirthYearValidator(req.body);
 
   if (error) {
     // logger.warn("Change birth year validation failed", {
@@ -40,8 +40,8 @@ const changeBirthYearValidatorMiddleware = function (req, res, next) {
 
 // change username
 
-const changeUsernameValidatorMiddleware = function (req, res, next) {
-  const { error } = changeUsernameValidator(req.body);
+const changeUsernameValidatorMiddleware = async function (req, res, next) {
+  const { error } = await changeUsernameValidator(req.body);
 
   if (error) {
     // logger.warn("Change username validation failed", {
@@ -58,8 +58,8 @@ const changeUsernameValidatorMiddleware = function (req, res, next) {
 
 // change password
 
-const changePasswordValidatorMiddleware = function (req, res, next) {
-  const { error } = changePasswordValidator(req.body);
+const changePasswordValidatorMiddleware = async function (req, res, next) {
+  const { error } = await changePasswordValidator(req.body);
 
   if (error) {
     // logger.warn("Change password validation failed", {

@@ -7,7 +7,13 @@ const bcrypt = require("bcryptjs");
 
 const getProfile = async (req, res, next) => {
   try {
-    res.status(200).json(req.user);
+    const user = await AuthSchema.findById(req.user.id);
+
+    if (!user) {
+      throw CustomErrorHandler.NotFound("User not found");
+    }
+
+    res.status(200).json(user);
   } catch (error) {
     logger.error("get profile error", error.message);
 
@@ -27,6 +33,8 @@ const changeUsername = async (req, res, next) => {
     }
 
     await AuthSchema.findByIdAndUpdate(id, { username });
+
+    logger.info("username updated from user:", req.user.id);
 
     res.status(200).json({
       message: "username updated",
@@ -70,7 +78,7 @@ const changePicture = async (req, res, next) => {
     }
 
     const picture = `/images/${req.file.filename}`;
-    "/images/default_photo_for_profile.png"
+    ("/images/default_photo_for_profile.png");
 
     const id = req.user.id;
 
@@ -153,7 +161,7 @@ const changeEmail = async (req, res, next) => {
     const { email: currentEmail, id } = req.user;
 
     const emailExists = await AuthSchema.findOne({ email: new_email });
-    const foundedUser = await AuthSchema.findById(id).select("+password");
+    const foundedUser = await AuthSchema.findById(id);
 
     if (emailExists) {
       throw CustomErrorHandler.BadRequest("email already exists");
