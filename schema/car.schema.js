@@ -38,6 +38,8 @@ const Car = new Schema(
         "purple",
         "pink",
         "silver",
+        "gold",
+        "beige",
       ],
       required: true,
     },
@@ -101,4 +103,3 @@ const Car = new Schema(
 const CarSchema = model("Car", Car);
 
 module.exports = CarSchema;
-

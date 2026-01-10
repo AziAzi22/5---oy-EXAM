@@ -9,12 +9,14 @@ const CarRouter = require("./router/car.routes");
 const errorMiddleware = require("./middleware/error.middleware");
 // const logger = require("./utils/logger");
 const adminRouter = require("./router/admin.routes");
+const saveCarRouter = require("./router/save-car.routes")
 
 // swagger 
-
+ 
 const YAML = require("yamljs"); 
 const swaggerUi = require("swagger-ui-express");
 const userRouter = require("./router/user.routes");
+const { saveCar } = require("./controller/saved-cars.controller");
 const swaggerDocs = YAML.load("./docs/documentation.yml");
 
 const app = express();
@@ -38,6 +40,7 @@ app.use(BrandRouter);
 app.use(CarRouter);
 app.use(adminRouter); 
 app.use(userRouter);
+app.use(saveCarRouter)
 
 // swagger
 
