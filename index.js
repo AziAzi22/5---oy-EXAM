@@ -16,7 +16,6 @@ const saveCarRouter = require("./router/save-car.routes")
 const YAML = require("yamljs"); 
 const swaggerUi = require("swagger-ui-express");
 const userRouter = require("./router/user.routes");
-const { saveCar } = require("./controller/saved-cars.controller");
 const swaggerDocs = YAML.load("./docs/documentation.yml");
 
 const app = express();
